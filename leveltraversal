@@ -1,0 +1,26 @@
+import queue
+def lvlTransversal(root):
+    if root is None:
+        return
+
+    q = queue.Queue()
+    q.put(root)
+    q.put(None)
+
+    while not q.empty():
+        curr = q.get()
+        if curr is None:
+            if q.empty():
+                return
+            q.put(None)
+            print()
+            continue
+        print(curr.data, end=" ")
+
+        if curr.left:
+            q.put(curr.left)
+
+        if curr.right:
+            q.put(curr.right)
+
+lvlTransversal(root)
